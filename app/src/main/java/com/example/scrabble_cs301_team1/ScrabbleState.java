@@ -65,4 +65,75 @@ public class ScrabbleState {
             myScrabbleState.player2Hand = null; //player1 can't see player 2 hand
     }
 
+    @Override
+    public String toString(){
+        String output;
+        output = "game pause: " + this.gamePause + "\n";
+        output += "player to move: " + this.playerToMove + "\n";
+
+        output += "board: ";
+        for(int i = 0; i < 15; i++) {
+            for (int j = 0; j < 15; j++) {
+                output += this.board[i][j].getLetter() + " ";
+            }
+            System.out.print("\n");
+        }
+
+        System.out.println("pool");
+        for(int i = 0; i < 100; i++){
+            output += this.pool[i].getLetter() + "\n";
+        }
+
+        System.out.println("player one hand: ");
+        for(int i = 0; i < 7; i++){
+            output += this.player1Hand[i].getLetter() + " \n";
+        }
+
+        System.out.println("player two hand: ");
+        for(int i = 0; i < 7; i++){
+            output += this.player2Hand[i].getLetter() + " ";
+        }
+        return output;
+
+    }
+
+    /**
+     *
+     * Methods in actions.txt
+     *Also got rid of challenge because I don't think it's necessary
+     *
+     */
+
+    public boolean isLegal(ScrabbleState scrabbleState){
+        //code to determine if action is legal
+        return true;
+    }
+
+    public boolean playWord(ScrabbleState scrabbleState){
+        if(isLegal(scrabbleState) == true){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+    public boolean pass(ScrabbleState scrabbleState){
+        if(isLegal(scrabbleState) == true){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+    public boolean exchange(ScrabbleState scrabbleState){
+        if(isLegal(scrabbleState) == true){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
 }
